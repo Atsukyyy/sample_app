@@ -26,6 +26,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     arel (4.0.2)
+    bcrypt-ruby (3.0.0)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
     builder (3.1.4)
@@ -37,9 +38,9 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
-    coffee-rails (4.0.1)
+    coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
+      railties (>= 4.0.0.beta, < 5.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -140,8 +141,9 @@ GEM
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
     tzinfo (0.3.51)
-    uglifier (3.0.2)
-      execjs (>= 0.3.0, < 3)
+    uglifier (2.1.1)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.0, >= 1.0.2)
     websocket (1.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -150,9 +152,10 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt-ruby (= 3.0.0)
   bootstrap-sass (= 2.3.2.0)
   capybara (= 2.1.0)
-  coffee-rails (~> 4.0.0)
+  coffee-rails (= 4.0.0)
   coffee-script-source (= 1.8.0)
   jbuilder (~> 1.2)
   jquery-rails
@@ -160,13 +163,13 @@ DEPENDENCIES
   rails (= 4.0.0)
   rails_12factor (= 0.0.2)
   rspec-rails (= 2.13.1)
-  sass-rails (~> 4.0.0)
+  sass-rails (= 4.0.5)
   sdoc
   selenium-webdriver (= 2.35.1)
   sprockets (= 2.11.0)
   sqlite3
   turbolinks
-  uglifier (>= 1.3.0)
+  uglifier (= 2.1.1)
 
 RUBY VERSION
    ruby 2.0.0p648
