@@ -12,6 +12,10 @@ gem 'sprockets', '2.11.0'
 
 gem 'bcrypt-ruby', '3.0.0'
 
+gem 'faker', '1.1.2'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
+
 
 group :development, :test do
   gem 'sqlite3','1.3.8'
@@ -25,9 +29,9 @@ group :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'cucumber-rails', '1.4.0', :require => false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
-  
+  gem 'factory_girl_rails', '4.2.1'
 end
-  
+
 gem 'sass-rails', '4.0.5'
 
 gem 'uglifier', '2.1.1'
@@ -57,5 +61,3 @@ group :production do
   gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
 end
-  
-  
