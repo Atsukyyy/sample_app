@@ -62,10 +62,19 @@ describe "User Pages" do
 
    describe "profile page" do
      let(:user) { FactoryGirl.create(:user) }
-  	 before { visit user_path(user) }
+     let!(:m1) { FactoryGirl.create(:micropost, user: user, content: "Foo") }
+     let!(:m2) { FactoryGirl.create(:micropost, user: user, content: "Bar") }
 
-  	 it { should have_content(user.name) }
-  	 it { should have_title(user.name) }
+     before { visit user_path(user) }
+
+     it { should have_content(user.name) }
+     it { should have_title(user.name) }
+
+     describe "microposts" do
+       it { should have_content(m1.content) }
+       it { should have_content(m2.content) }
+       it { should have_content(user.microposts.count) }
+     end
    end
 
    describe "signup" do
@@ -140,5 +149,16 @@ describe "User Pages" do
        specify { expect(user.reload.name).to  eq new_name }
        specify { expect(user.reload.email).to eq new_email }
      end
+     describe "forbidden attributes" do
+      let(:params) do
+        { user: { admin: true, password: user.password,
+                  password_confirmation: user.password } }
+      end
+      before do
+        sign_in user, no_capybara: true
+        patch user_path(user), params
+      end
+      specify { expect(user.reload).not_to be_admin }
+    end
    end
  end
